@@ -42,21 +42,26 @@ public class MainActivity extends Activity {
             new CompanyListAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View v, int position) {
-                    Intent intent = new Intent(MainActivity.this, CompanyDetailsActivity.class);
-                    intent.putExtra(CompanyDetailsActivity.EXTRA_PARAM_ID, position);
-                    //startActivity(intent);
-                    ImageView busImage = (ImageView) v.findViewById(R.id.busImage);
-                    LinearLayout busNameHolder = (LinearLayout) v.findViewById(R.id.busNameHolder);
+                    if(mainActivityPresenter.getCompanyName(position).equals(getString(R.string.people_mover))){
+                        Intent intent = new Intent(MainActivity.this, RouteDetailsActivity.class);
+                        intent.putExtra(RouteDetailsActivity.EXTRA_ROUTE, getString(R.string.people_mover));
+                        startActivity(intent);
+                    }else {
+                        Intent intent = new Intent(MainActivity.this, CompanyDetailsActivity.class);
+                        intent.putExtra(CompanyDetailsActivity.EXTRA_PARAM_ID, position);
+                        ImageView busImage = (ImageView) v.findViewById(R.id.busImage);
+                        LinearLayout busNameHolder = (LinearLayout) v.findViewById(R.id.busNameHolder);
 
 
-                    Pair<View, String> imagePair = Pair.create((View) busImage, "tImage");
-                    Pair<View, String> holderPair = Pair.create((View) busNameHolder, "tNameHolder");
+                        Pair<View, String> imagePair = Pair.create((View) busImage, "tImage");
+                        Pair<View, String> holderPair = Pair.create((View) busNameHolder, "tNameHolder");
 
 
-                    ActivityOptionsCompat options =
-                            ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,
-                                    imagePair, holderPair);
-                    ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
+                        ActivityOptionsCompat options =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,
+                                        imagePair, holderPair);
+                        ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
+                    }
                 }
             };
 

@@ -8,4 +8,6 @@
     <string name="routes">ROUTES</string>
 
     <string name="show_as_grid">Show as grid</string>
+
+    <string name="people_mover">PeopleMover</string>
 </resources>
