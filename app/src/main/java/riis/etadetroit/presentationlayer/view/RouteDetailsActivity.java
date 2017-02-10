@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.text.Layout;
 import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -33,24 +32,17 @@ public class RouteDetailsActivity extends Activity {
         route = intent.getStringExtra(EXTRA_ROUTE);
         routeDetails = (TextView) findViewById(R.id.routeDetails);
         setBackgroundColor();
-        showRouteDetails();
+        setRouteDetails();
+        setRouteId();
         showRouteStops();
     }
 
-    public void showRouteDetails() {
-        Cursor routeDetailsCursor = routeDetailsPresenter.getRouteDetails(route);
+    public void setRouteDetails() {
+        routeDetails.setText(routeDetailsPresenter.getRouteDetails(route));
+    }
 
-        if (routeDetailsCursor.moveToFirst()) {
-            routeDetails.setText("ROUTE DETAILS" +
-                    "\n\nROUTE: " + route +
-                    "\nROUTE NUMBER: " + routeDetailsCursor.getString(2) +
-                    "\nDIRECTION 1: " + routeDetailsCursor.getString(3) +
-                    "\nDIRECTION 2: " + routeDetailsCursor.getString(4) +
-                    "\nDAYS ACTIVE: " + routeDetailsCursor.getString(5) +
-                    "\n\nSTOPS");
-
-            routeId = routeDetailsCursor.getString(6);
-        }
+    public void setRouteId() {
+        routeId = routeDetailsPresenter.getRouteId(route);
     }
 
     public void showRouteStops() {
@@ -62,7 +54,7 @@ public class RouteDetailsActivity extends Activity {
         stopList.setAdapter(routeStopsCursorAdapter);
     }
 
-    public void setBackgroundColor(){
+    public void setBackgroundColor() {
         LinearLayout layout = (LinearLayout) findViewById(R.id.route_details_layout);
         layout.setBackgroundColor(intent.getIntExtra(EXTRA_COLOR, getResources().getColor(R.color.photo_tint)));
     }

@@ -13,9 +13,14 @@ public class RouteDetailsPresenter {
         this.context = context;
     }
 
-    public Cursor getRouteDetails(String route) {
+    public String getRouteDetails(String route) {
         RouteDetailsInteractor routeDetailsPresenter = new RouteDetailsInteractor(context);
         return routeDetailsPresenter.getRouteDetails(route);
+    }
+
+    public String getRouteId(String route){
+        RouteDetailsInteractor routeDetailsPresenter = new RouteDetailsInteractor(context);
+        return routeDetailsPresenter.getRouteId(route);
     }
 
     public Cursor getRouteStops(String route_id) {

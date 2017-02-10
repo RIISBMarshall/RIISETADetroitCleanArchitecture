@@ -12,8 +12,32 @@ public class RouteDetailsInteractor {
         this.context = context;
     }
 
-    public Cursor getRouteDetails(String route){
+    public String getRouteDetails(String route){
         Repository repository = new Repository(context);
-        return repository.getRouteDetails(route);
+
+        Cursor routeDetailsCursor = repository.getRouteDetails(route);
+
+        if (routeDetailsCursor.moveToFirst()) {
+
+            return ("ROUTE DETAILS" +
+                    "\n\nROUTE: " + route +
+                    "\nROUTE NUMBER: " + routeDetailsCursor.getString(2) +
+                    "\nDIRECTION 1: " + routeDetailsCursor.getString(3) +
+                    "\nDIRECTION 2: " + routeDetailsCursor.getString(4) +
+                    "\nDAYS ACTIVE: " + routeDetailsCursor.getString(5) +
+                    "\n\nSTOPS");
+        }
+        return null;
+    }
+
+    public String getRouteId(String route){
+        Repository repository = new Repository(context);
+
+        Cursor routeDetailsCursor = repository.getRouteDetails(route);
+
+        if (routeDetailsCursor.moveToFirst()){
+            return routeDetailsCursor.getString(6);
+        }
+        return null;
     }
 }
