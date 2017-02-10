@@ -34,6 +34,7 @@ public class CompanyDetailsActivity extends Activity{
     private String companyName;
     private int companyImageResourceId;
     private CompanyDetailsPresenter companyDetailsPresenter;
+    private Palette mPalette;
 
 
     @Override
@@ -54,6 +55,7 @@ public class CompanyDetailsActivity extends Activity{
                 if (routeCursor.moveToPosition(position)) {
                     Intent intent = new Intent(CompanyDetailsActivity.this, RouteDetailsActivity.class);
                     intent.putExtra(RouteDetailsActivity.EXTRA_ROUTE, routeCursor.getString(1));
+                    intent.putExtra(RouteDetailsActivity.EXTRA_COLOR, mPalette.getDarkMutedColor(defaultColor));
                     startActivity(intent);
                 }
             }
@@ -102,7 +104,7 @@ public class CompanyDetailsActivity extends Activity{
     }
 
     private void colorize(Bitmap photo) {
-        Palette mPalette = new Palette.Builder(photo).generate();
+        mPalette = new Palette.Builder(photo).generate();
         applyPalette(mPalette);
     }
 

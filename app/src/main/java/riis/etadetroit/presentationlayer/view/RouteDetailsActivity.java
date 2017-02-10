@@ -17,21 +17,22 @@ import riis.etadetroit.presentationlayer.presenter.RouteDetailsPresenter;
 public class RouteDetailsActivity extends Activity {
 
     public static final String EXTRA_ROUTE = "route";
+    public static final String EXTRA_COLOR = "color";
     private TextView routeDetails;
     private String route;
     private String routeId;
     private RouteDetailsPresenter routeDetailsPresenter;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_details);
-        LinearLayout layout = (LinearLayout) findViewById(R.id.route_details_layout);
-        //layout.setBackgroundColor(getResources().getColor(R.color.dark_green));
         routeDetailsPresenter = new RouteDetailsPresenter(this);
-        Intent intent = getIntent();
+        intent = getIntent();
         route = intent.getStringExtra(EXTRA_ROUTE);
         routeDetails = (TextView) findViewById(R.id.routeDetails);
+        setBackgroundColor();
         showRouteDetails();
         showRouteStops();
     }
@@ -59,5 +60,10 @@ public class RouteDetailsActivity extends Activity {
                 new int[]{R.id.list_content}, 0);
         ListView stopList = (ListView) findViewById(R.id.stopList);
         stopList.setAdapter(routeStopsCursorAdapter);
+    }
+
+    public void setBackgroundColor(){
+        LinearLayout layout = (LinearLayout) findViewById(R.id.route_details_layout);
+        layout.setBackgroundColor(intent.getIntExtra(EXTRA_COLOR, getResources().getColor(R.color.photo_tint)));
     }
 }
