@@ -5,15 +5,8 @@ import android.content.Context;
 import riis.etadetroit.domainlayer.interactor.CompanyImageIDInteractor;
 import riis.etadetroit.domainlayer.interactor.CompanyListSizeInteractor;
 import riis.etadetroit.domainlayer.interactor.CompanyNameInteractor;
-import riis.etadetroit.domainlayer.interfaces.MainContract;
-import riis.etadetroit.datalayer.model.CompanyData;
-import riis.etadetroit.datalayer.model.ETADetroitDatabaseHelper;
 
-/**
- * Created by bmarshall on 2/6/17.
- */
-
-public class MainActivityPresenter implements MainContract.MainPresenter {
+public class MainActivityPresenter {
 
     private Context context;
 

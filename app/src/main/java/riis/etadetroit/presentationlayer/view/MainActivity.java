@@ -18,11 +18,10 @@ import android.widget.Toolbar;
 
 import riis.etadetroit.presentationlayer.adapters.CompanyListAdapter;
 import riis.etadetroit.R;
-import riis.etadetroit.domainlayer.interfaces.MainContract;
 import riis.etadetroit.presentationlayer.presenter.MainActivityPresenter;
 
 
-public class MainActivity extends Activity implements MainContract.MainView {
+public class MainActivity extends Activity {
 
     private Menu menu;
     private boolean isListView;

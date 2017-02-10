@@ -6,15 +6,8 @@ import android.database.Cursor;
 import riis.etadetroit.domainlayer.interactor.CompanyImageIDInteractor;
 import riis.etadetroit.domainlayer.interactor.CompanyNameInteractor;
 import riis.etadetroit.domainlayer.interactor.RoutesInteractor;
-import riis.etadetroit.domainlayer.interfaces.CompanyDetailsContract;
-import riis.etadetroit.datalayer.model.CompanyData;
-import riis.etadetroit.datalayer.model.ETADetroitDatabaseHelper;
 
-/**
- * Created by bmarshall on 2/6/17.
- */
-
-public class CompanyDetailsPresenter implements CompanyDetailsContract.CompanyDetailsPresenter {
+public class CompanyDetailsPresenter {
 
     private Context context;
 

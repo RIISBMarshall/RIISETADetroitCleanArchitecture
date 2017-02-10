@@ -19,10 +19,9 @@ import android.widget.TextView;
 import riis.etadetroit.R;
 import riis.etadetroit.presentationlayer.adapters.RouteCursorAdapter;
 import riis.etadetroit.presentationlayer.adapters.TransitionAdapter;
-import riis.etadetroit.domainlayer.interfaces.CompanyDetailsContract;
 import riis.etadetroit.presentationlayer.presenter.CompanyDetailsPresenter;
 
-public class CompanyDetailsActivity extends Activity implements CompanyDetailsContract.CompanyDetailsView {
+public class CompanyDetailsActivity extends Activity{
 
     public static final String EXTRA_PARAM_ID = "place_id";
     private ListView mList;
@@ -65,7 +64,7 @@ public class CompanyDetailsActivity extends Activity implements CompanyDetailsCo
         companyDetailsPresenter = new CompanyDetailsPresenter(this);
         int companyPosition = getIntent().getIntExtra(EXTRA_PARAM_ID, 0);
         companyName = companyDetailsPresenter.getCompanyName(companyPosition);
-        companyImageResourceId = companyDetailsPresenter.getCompanyImageResourceId(this, companyPosition);
+        companyImageResourceId = companyDetailsPresenter.getCompanyImageResourceId(companyPosition);
         defaultColor = getResources().getColor(R.color.primary_dark);
     }
 

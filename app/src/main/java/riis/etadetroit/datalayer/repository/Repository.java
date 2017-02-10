@@ -1,10 +1,10 @@
-package riis.etadetroit.datalayer;
+package riis.etadetroit.datalayer.repository;
 
 import android.content.Context;
 import android.database.Cursor;
 
-import riis.etadetroit.datalayer.model.CompanyData;
-import riis.etadetroit.datalayer.model.ETADetroitDatabaseHelper;
+import riis.etadetroit.datalayer.entities.CompanyData;
+import riis.etadetroit.datalayer.entities.ETADetroitDatabaseHelper;
 
 /**
  * Created by bmarshall on 2/9/17.

@@ -81,9 +81,9 @@ public class CompanyListAdapter extends RecyclerView.Adapter<CompanyListAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.placeName.setText(mainActivityPresenter.getCompanyName(position));
-        Picasso.with(mContext).load(mainActivityPresenter.getCompanyImageResourceId(mContext, position)).into(holder.placeImage);
+        Picasso.with(mContext).load(mainActivityPresenter.getCompanyImageResourceId(position)).into(holder.placeImage);
 
-        Bitmap photo = BitmapFactory.decodeResource(mContext.getResources(), mainActivityPresenter.getCompanyImageResourceId(mContext, position));
+        Bitmap photo = BitmapFactory.decodeResource(mContext.getResources(), mainActivityPresenter.getCompanyImageResourceId(position));
         new Palette.Builder(photo).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(Palette palette) {
                 int bgColor = palette.getMutedColor(mContext.getResources().getColor(android.R.color.black));

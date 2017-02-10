@@ -2,12 +2,7 @@ package riis.etadetroit.domainlayer.interactor;
 
 import android.content.Context;
 
-import riis.etadetroit.datalayer.Repository;
-import riis.etadetroit.datalayer.model.CompanyData;
-
-/**
- * Created by bmarshall on 2/9/17.
- */
+import riis.etadetroit.datalayer.repository.Repository;
 
 public class CompanyImageIDInteractor {
 

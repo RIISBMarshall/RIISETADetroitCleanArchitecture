@@ -1,8 +1,20 @@
 package riis.etadetroit.domainlayer.interactor;
 
-/**
- * Created by bmarshall on 2/9/17.
- */
+import android.content.Context;
+import android.database.Cursor;
+
+import riis.etadetroit.datalayer.repository.Repository;
 
 public class RouteStopsInteractor {
+
+    private Context context;
+
+    public RouteStopsInteractor(Context context){
+        this.context = context;
+    }
+
+    public Cursor getRouteStops(String route_id){
+        Repository repository = new Repository(context);
+        return repository.getRouteStops(route_id);
+    }
 }

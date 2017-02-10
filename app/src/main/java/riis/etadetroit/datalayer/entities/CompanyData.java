@@ -1,4 +1,4 @@
-package riis.etadetroit.datalayer.model;
+package riis.etadetroit.datalayer.entities;
 
 import android.content.Context;
 import android.database.Cursor;

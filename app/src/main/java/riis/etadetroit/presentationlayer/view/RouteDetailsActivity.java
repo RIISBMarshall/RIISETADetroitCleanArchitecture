@@ -10,10 +10,9 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import riis.etadetroit.R;
-import riis.etadetroit.domainlayer.interfaces.RouteDetailsContract;
 import riis.etadetroit.presentationlayer.presenter.RouteDetailsPresenter;
 
-public class RouteDetailsActivity extends Activity implements RouteDetailsContract.RouteDetailsView {
+public class RouteDetailsActivity extends Activity {
 
     public static final String EXTRA_ROUTE = "route";
     private TextView routeDetails;
