@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import riis.etadetroit.R;
-import riis.etadetroit.datalayer.repository.Repository;
 import riis.etadetroit.presentationlayer.view.CompanyDetailsActivity;
 import riis.etadetroit.presentationlayer.view.RouteDetailsActivity;
 
@@ -24,8 +23,8 @@ public class CallNextViewInteractor {
     }
 
     public void callNextView(View v, int position, Context mainActivityContext) {
-        Repository repository = new Repository(context);
-        if (repository.getCompanyName(position).equals(context.getString(R.string.people_mover))) {
+        CompanyNameInteractor companyNameInteractor = new CompanyNameInteractor(context);
+        if (companyNameInteractor.getCompanyName(position).equals(context.getString(R.string.people_mover))) {
             Intent intent = new Intent(context, RouteDetailsActivity.class);
             intent.putExtra(RouteDetailsActivity.EXTRA_ROUTE, context.getString(R.string.people_mover));
             context.startActivity(intent);

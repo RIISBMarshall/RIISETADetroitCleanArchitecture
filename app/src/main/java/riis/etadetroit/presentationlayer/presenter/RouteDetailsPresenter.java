@@ -2,6 +2,7 @@ package riis.etadetroit.presentationlayer.presenter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.widget.SimpleCursorAdapter;
 
 import riis.etadetroit.domainlayer.interactor.RouteDetailsInteractor;
 import riis.etadetroit.domainlayer.interactor.RouteStopsInteractor;
@@ -23,7 +24,7 @@ public class RouteDetailsPresenter {
         return routeDetailsPresenter.getRouteId(route);
     }
 
-    public Cursor getRouteStops(String route_id) {
+    public SimpleCursorAdapter getRouteStops(String route_id) {
         RouteStopsInteractor routeStopsInteractor = new RouteStopsInteractor(context);
         return routeStopsInteractor.getRouteStops(route_id);
     }

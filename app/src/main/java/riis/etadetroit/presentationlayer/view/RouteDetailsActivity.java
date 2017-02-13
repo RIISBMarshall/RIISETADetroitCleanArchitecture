@@ -2,12 +2,9 @@ package riis.etadetroit.presentationlayer.view;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import riis.etadetroit.R;
@@ -46,12 +43,8 @@ public class RouteDetailsActivity extends Activity {
     }
 
     public void showRouteStops() {
-        Cursor routeStopsCursor = routeDetailsPresenter.getRouteStops(routeId);
-
-        CursorAdapter routeStopsCursorAdapter = new SimpleCursorAdapter(this, R.layout.adapter_route_stops_cursor, routeStopsCursor, new String[]{"stop_name"},
-                new int[]{R.id.list_content}, 0);
         ListView stopList = (ListView) findViewById(R.id.stopList);
-        stopList.setAdapter(routeStopsCursorAdapter);
+        stopList.setAdapter(routeDetailsPresenter.getRouteStops(routeId));
     }
 
     public void setBackgroundColor() {

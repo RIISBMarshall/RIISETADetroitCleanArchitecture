@@ -21,7 +21,7 @@ import riis.etadetroit.presentationlayer.adapters.RouteCursorAdapter;
 import riis.etadetroit.presentationlayer.adapters.TransitionAdapter;
 import riis.etadetroit.presentationlayer.presenter.CompanyDetailsPresenter;
 
-public class CompanyDetailsActivity extends Activity{
+public class CompanyDetailsActivity extends Activity {
 
     public static final String EXTRA_PARAM_ID = "place_id";
     private ListView mList;
@@ -62,7 +62,7 @@ public class CompanyDetailsActivity extends Activity{
         });
     }
 
-    public void initializeAttributes(){
+    public void initializeAttributes() {
         companyDetailsPresenter = new CompanyDetailsPresenter(this);
         int companyPosition = getIntent().getIntExtra(EXTRA_PARAM_ID, 0);
         companyName = companyDetailsPresenter.getCompanyName(companyPosition);
@@ -70,7 +70,7 @@ public class CompanyDetailsActivity extends Activity{
         defaultColor = getResources().getColor(R.color.primary_dark);
     }
 
-    public void initializeViews(){
+    public void initializeViews() {
         mList = (ListView) findViewById(R.id.list);
         mImageView = (ImageView) findViewById(R.id.busImage);
         mTitle = (TextView) findViewById(R.id.textView);
@@ -95,7 +95,6 @@ public class CompanyDetailsActivity extends Activity{
                 getWindow().getEnterTransition().removeListener(this);
             }
         });
-
     }
 
     public void getPhoto() {
