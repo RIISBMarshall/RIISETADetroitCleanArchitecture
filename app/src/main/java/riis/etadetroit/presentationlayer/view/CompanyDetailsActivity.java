@@ -1,7 +1,6 @@
 package riis.etadetroit.presentationlayer.view;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,8 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.graphics.Palette;
 import android.transition.Transition;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -48,18 +45,8 @@ public class CompanyDetailsActivity extends Activity {
         windowTransition();
         getPhoto();
 
-        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                if (routeCursor.moveToPosition(position)) {
-                    Intent intent = new Intent(CompanyDetailsActivity.this, RouteDetailsActivity.class);
-                    intent.putExtra(RouteDetailsActivity.EXTRA_ROUTE, routeCursor.getString(1));
-                    intent.putExtra(RouteDetailsActivity.EXTRA_COLOR, mPalette.getDarkMutedColor(defaultColor));
-                    startActivity(intent);
-                }
-            }
-        });
+        mList.setOnItemClickListener(companyDetailsPresenter.getRouteListClickListener(companyName,
+                mPalette, defaultColor));
     }
 
     public void initializeAttributes() {
